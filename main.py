@@ -8,7 +8,13 @@ app = Flask(__name__)
 # routes
 @app.route('/')
 def hello_world():
-    return f"<a href='{ url_for('about_page') }'>About page<a/>"
+    title = "Customers Management"
+    customers = [
+        {"name": "Guilherme", "membro_ativo": True},
+        {"name": "Joao", "membro_ativo": False},
+        {"name": "Maria", "membro_ativo": False},
+    ]
+    return render_template('index.html', title=title, customers=customers)
 
 @app.route('/sobre')
 def about_page():
