@@ -1,27 +1,13 @@
-from flask import Flask, url_for, render_template
+from flask import Flask
+from routes.home import home_route
+from routes.customer import customer_route
 
 
 # inicialization
 app = Flask(__name__)
 
-
-# routes
-@app.route('/')
-def hello_world():
-    title = "Customers Management"
-    customers = [
-        {"name": "Guilherme", "membro_ativo": True},
-        {"name": "Joao", "membro_ativo": False},
-        {"name": "Maria", "membro_ativo": False},
-    ]
-    return render_template('index.html', title=title, customers=customers)
-
-@app.route('/sobre')
-def about_page():
-    return """
-        <b>Rafael Dantas</b>: é legal!
-    """
-
+app.register_blueprint(home_route)
+app.register_blueprint(customer_route, url_prefix='/customers')
 
 # execution
 app.run(debug=True)
