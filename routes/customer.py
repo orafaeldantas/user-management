@@ -18,28 +18,28 @@ Rota de Clientes
 
 @customer_route.route('/')
 def customer_list():
-    return {'pagina': 'lista_clientes'}
+    return render_template('customer_list.html')
 
 @customer_route.route('/', methods=['POST'])
 def insert_customer():
-    return {'pagina': 'formulario clientes'}
+    pass
 
 @customer_route.route('/new')
 def form_customer():
-    pass
+    return render_template('form_customer.html')
 
-@customer_route.route('/<int:>custumer_id')
-def get_customer(custumer_id):
-    pass
+@customer_route.route('/<int:custumer_id>')
+def detail_customer(custumer_id):
+    return render_template('detail_customer.html')
 
-@customer_route.route('/<int:>custumer_id/edit')
+@customer_route.route('/<int:custumer_id>/edit')
 def form_edit_customer(custumer_id):
-    pass
+    return render_template('form_edit_customer.html')
 
-@customer_route.route('/<int:>custumer_id/update', methods=['PUT'])
+@customer_route.route('/<int:custumer_id>/update', methods=['PUT'])
 def update_customer(custumer_id):
     pass
 
-@customer_route.route('/<int:>custumer_id/delete', methods=['DELETE'])
+@customer_route.route('/<int:custumer_id>/delete', methods=['DELETE'])
 def delete_customer(custumer_id):
     pass
