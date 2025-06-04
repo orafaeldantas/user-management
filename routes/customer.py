@@ -1,4 +1,5 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
+from database.customer import CUSTOMERS
 
 customer_route = Blueprint('customer', __name__)
 
@@ -18,7 +19,7 @@ Rota de Clientes
 
 @customer_route.route('/')
 def customer_list():
-    return render_template('customer_list.html')
+    return render_template('customer_list.html', customers=CUSTOMERS)
 
 @customer_route.route('/', methods=['POST'])
 def insert_customer():
