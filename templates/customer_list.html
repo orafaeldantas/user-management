@@ -10,16 +10,7 @@
     <tbody>
 
         {% for customer in customers %}
-
-            <tr>
-                <th scope="row">{{ customer.id }}</th>
-                <td>{{ customer.nome }}</td>
-                <td>{{ customer.email }}</td>
-                <td>
-                    <button type="button" class="btn btn-primary">Editar</button>
-                    <button type="button" class="btn btn-danger">Deletar</button>               
-                </td>
-            </tr>
+           {% include 'item_customer.html' %} 
         {% endfor %}
 
     </tbody>

@@ -10,15 +10,18 @@
   <body>
 
     <div class="container">
-      <h1>Gestão de Clientes</h1>
+      <h1 class="text-center">Gestão de Clientes</h1>
       
       <!-- Form add customer -->
       <div c-container="{{ url_for('customer.form_customer')}}"></div>
+      
+      <hr>
 
       <!-- List customers -->
+      <h2>Lista de Clientes</h2>
       <div c-container="{{ url_for('customer.customer_list')}}"></div>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/cru.js') }}"></script>
   </body>
