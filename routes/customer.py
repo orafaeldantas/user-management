@@ -28,7 +28,7 @@ def insert_customer():
 
     new_customer = {
         "id": len(CUSTOMERS) + 1,
-        "name": data['name'],
+        "nome": data['nome'],
         "email": data['email'],
     }
 
