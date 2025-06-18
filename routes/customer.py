@@ -41,17 +41,27 @@ def form_customer():
     return render_template('form_customer.html')
 
 @customer_route.route('/<int:custumer_id>')
-def detail_customer(custumer_id):
+def detail_customer(customer_id):
     return render_template('detail_customer.html')
 
 @customer_route.route('/<int:custumer_id>/edit')
-def form_edit_customer(custumer_id):
-    return render_template('form_edit_customer.html')
+def form_edit_customer(customer_id):
+
+    customer = None
+    for c in CUSTOMERS:
+        if c['id'] == customer_id:
+            customer = c
+    
+    return render_template('form_customer.html',customer=customer)
 
 @customer_route.route('/<int:custumer_id>/update', methods=['PUT'])
-def update_customer(custumer_id):
+def update_customer(customer_id):
     pass
 
-@customer_route.route('/<int:custumer_id>/delete', methods=['DELETE'])
-def delete_customer(custumer_id):
-    pass
+@customer_route.route('/<int:customer_id>/delete', methods=['DELETE'])
+def delete_customer(customer_id):
+    global CUSTOMERS
+
+    CUSTOMERS = [c for c in CUSTOMERS if c['id'] != customer_id]
+
+    return {'deleted': 'ok'}
